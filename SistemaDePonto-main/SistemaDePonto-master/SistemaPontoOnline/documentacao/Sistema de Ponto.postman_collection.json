@@ -1,0 +1,290 @@
+{
+	"info": {
+		"_postman_id": "4dd2cab2-9e5f-47d5-9351-8dff641a22bc",
+		"name": "Sistema de Ponto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Funcionario",
+			"item": [
+				{
+					"name": "Lista funcionarios",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": [
+						{
+							"name": "Lista todos funcionarios",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Lista funcionarios por.....",
+							"originalRequest": {
+								"method": "GET",
+								"header": []
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "Criar funcionario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Vinicius\",\r\n        \"cargo\": {\r\n            \"id\": 15,\r\n            \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                \"id\": null,\r\n                \"nomeDepartamento\": \"AOC\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"ATIVO\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/funcionarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Departamento",
+			"item": [
+				{
+					"name": "Lista departamentos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Criar departamento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nomeDepartamento\": \"AOC\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/departamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"departamentos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cargo",
+			"item": [
+				{
+					"name": "Lista cargos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Criar cargo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 15,\r\n        \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n        \"cargaHoraria\": \"08:00:00\",\r\n        \"departamento\": {\r\n            \"id\": 6,\r\n            \"nomeDepartamento\": \"AOC\"\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cargos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cargos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Justificativa",
+			"item": [
+				{
+					"name": "Lista justificativas",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Criar Justificativas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoJustificativa\": \"Licença Maternidade\",\r\n    \"dataJustificativa\": \"2022-11-06T10:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/justificativas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"justificativas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Historico Ponto",
+			"item": [
+				{
+					"name": "Lista historico ponto",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Criar historico ponto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n     \"dataMarcacao\": \"2022-11-06T19:15:00\",\r\n        \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 6,\r\n            \"codigoFuncional\": 94745468,\r\n            \"nome\": \"Maria\",\r\n            \"cargo\": {\r\n                \"id\": 4,\r\n                \"descricaoCargo\": \"Operador\",\r\n                \"cargaHoraria\": \"08:00:00\",\r\n                \"departamento\": {\r\n                    \"id\": 2,\r\n                    \"nomeDepartamento\": \"AOC\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/historicoponto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"historicoponto"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Criar historico ponto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n     \"dataMarcacao\": \"2022-11-06T19:15:00\",\r\n        \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 6,\r\n            \"codigoFuncional\": 94745468,\r\n            \"nome\": \"Maria\",\r\n            \"cargo\": {\r\n                \"id\": 4,\r\n                \"descricaoCargo\": \"Operador\",\r\n                \"cargaHoraria\": \"08:00:00\",\r\n                \"departamento\": {\r\n                    \"id\": 2,\r\n                    \"nomeDepartamento\": \"AOC\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/historicoponto",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"historicoponto"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				},
+				{
+					"name": "teste LocalDateTime.now",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n             \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 4,\r\n            \"codigoFuncional\": 95745468,\r\n            \"nome\": \"Maria\",\r\n            \"cargo\": {\r\n                \"id\": 3,\r\n                \"descricaoCargo\": \"Operador\",\r\n                \"cargaHoraria\": \"08:00:00\",\r\n                \"departamento\": {\r\n                    \"id\": 1,\r\n                    \"nomeDepartamento\": \"RH\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/historicoponto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"historicoponto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
