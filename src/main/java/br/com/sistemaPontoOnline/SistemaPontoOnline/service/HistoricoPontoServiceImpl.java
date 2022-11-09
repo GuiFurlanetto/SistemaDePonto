@@ -40,6 +40,7 @@ public class HistoricoPontoServiceImpl implements HistoricoPontoService {
     @Override
     public HistoricoPonto update (Long id, HistoricoPonto historicoPonto){
         historicoPonto.setId(id);
+        historicoPonto.setDataMarcacao(LocalDateTime.now());
         return historicoPontoRepository.save(historicoPonto);}
 
     @Override

@@ -15,7 +15,7 @@ public interface FuncionarioService {
 
     Funcionario save (Funcionario funcionario);
     Funcionario getById (Long id);
-    Funcionario update (Long codigoFuncional, Funcionario funcionario);
+    Funcionario update (Long id, Funcionario funcionario);
     void delete (Long id);
 
 }

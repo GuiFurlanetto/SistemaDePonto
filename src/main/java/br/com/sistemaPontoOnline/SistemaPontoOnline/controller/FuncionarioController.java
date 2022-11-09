@@ -31,9 +31,9 @@ public class FuncionarioController {
         return funcionarioService.save(funcionario);
     }
 
-    @PutMapping("{codigoFuncional}")
-    Funcionario update(@PathVariable Long codigoFuncional, @RequestBody Funcionario funcionario) {
-        return funcionarioService.update(codigoFuncional, funcionario);
+    @PutMapping("{id}")
+    Funcionario update(@PathVariable Long id, @RequestBody Funcionario funcionario) {
+        return funcionarioService.update(id, funcionario);
     }
 
     @DeleteMapping("{codigoFuncional}")
