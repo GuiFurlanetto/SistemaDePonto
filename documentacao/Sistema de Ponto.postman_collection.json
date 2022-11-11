@@ -1022,6 +1022,46 @@
 					]
 				}
 			]
+		},
+		{
+			"name": "MarcacaoPonto",
+			"item": [
+				{
+					"name": "Criar MarcacaoPonto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n             \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 5,\r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Mario\",\r\n        \"cargo\": {\r\n                \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                   \"id\": 3,\r\n                \"nomeDepartamento\": \"DS\"\r\n            }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/marcacaoponto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"marcacaoponto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
