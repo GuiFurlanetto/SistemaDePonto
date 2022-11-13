@@ -1,6 +1,7 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Funcionario;
+import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.FuncionarioNotFound;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.FuncionarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
@@ -35,7 +36,7 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 
     @Override
     public Funcionario getById(Long id) {
-        return funcionarioRepository.findById(id).get();
+        return funcionarioRepository.findById(id).orElseThrow(FuncionarioNotFound::new);
     }
 
     @Override

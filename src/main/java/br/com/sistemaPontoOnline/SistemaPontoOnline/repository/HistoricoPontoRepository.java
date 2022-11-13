@@ -10,4 +10,6 @@ import java.util.List;
 public interface HistoricoPontoRepository extends CrudRepository<HistoricoPonto, Long> {
 
     List<HistoricoPonto> findAllBydataMarcacao(LocalDateTime dataMarcacao);
+
+
 }

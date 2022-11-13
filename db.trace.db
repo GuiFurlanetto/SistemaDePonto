@@ -1,0 +1,6 @@
+2022-11-13 18:21:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM MARCACAO_PONTO WHERE FUNCIONARIO_ID =[*]= 5"; expected "ALL (, ANY (, SOME ("; SQL statement:
+SELECT * FROM MARCACAO_PONTO WHERE FUNCIONARIO_ID == 5 [42001-214]
+2022-11-13 18:22:02 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM MARCACAO_PONTO WHERE FUNCIONARIO_ID =[*]= ""5"""; expected "ALL (, ANY (, SOME ("; SQL statement:
+SELECT * FROM MARCACAO_PONTO WHERE FUNCIONARIO_ID == "5" [42001-214]
