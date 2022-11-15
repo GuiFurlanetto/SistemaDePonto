@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 
 import java.util.List;
@@ -24,10 +25,10 @@ public class HandlerException {
         return apiError;
     }
 
-    /*@ExceptionHandler(MaxUploadSizeExceededException.class)
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
     public APIError handleMaxSizeException(MaxUploadSizeExceededException exc) {
-        return APIError.builder().message("File too large!").build();
-    }*/
+        return APIError.builder().message("Arquivo acima do tamanho permitido!").build();
+    }
 
 
     /*@ExceptionHandler({MethodArgumentNotValidException.class})
