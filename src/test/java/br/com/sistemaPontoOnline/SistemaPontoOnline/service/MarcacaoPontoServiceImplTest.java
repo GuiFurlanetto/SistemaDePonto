@@ -13,14 +13,14 @@
 //@RequiredArgsConstructor
 //public class MarcacaoPontoServiceImplTest {
 //// NÃO DEU CERTO
-//    private final MarcacaoPontoRepository marcacaoPontoRepository;
+//    private final MarcacaoPontoService  ;
 //
 //    @Test
 //    public void  testeListarTodasMarcacoes(MarcacaoPonto marcacaoPonto) {
 //
 //        //dado
 //        //quando
-//        marcacaoPontoRepository.findAll();
+//          marcacaoPontoservice
 //        //assim
 //
 //        Assertions.assertNotNull(IterableUtils.toList(marcacaoPontoRepository.findAll()), "");

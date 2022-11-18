@@ -1,6 +1,7 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.config;
 
 import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.FuncionarioNotFound;
+import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.MarcacaoMenorQue6Min;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -14,13 +15,22 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class HandlerException {
 
-
     @ExceptionHandler({FuncionarioNotFound.class})
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public APIError handlerExceptionNotFound(Exception exception) {
         APIError apiError = APIError.builder()
                 .message(exception.getMessage())
                 .code("ERROR.FCO.001")
+                .build();
+        return apiError;
+    }
+
+    @ExceptionHandler({MarcacaoMenorQue6Min.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public APIError handlerException6Min(Exception exception) {
+        APIError apiError = APIError.builder()
+                .message(exception.getMessage())
+                .code("ERROR.MAR.001")
                 .build();
         return apiError;
     }

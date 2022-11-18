@@ -3,6 +3,7 @@ package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Funcionario;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.HistoricoPonto;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.MarcacaoPonto;
+import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.MarcacaoMenorQue6Min;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.MarcacaoPontoRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
@@ -27,9 +28,20 @@ public class MarcacaoPontoServiceImpl implements MarcacaoPontoService {
 
     @Override
     public MarcacaoPonto save(MarcacaoPonto marcacaoPonto, Funcionario funcionario) {
+
         marcacaoPonto.setMarcacaoPonto(LocalDateTime.now());
+        Optional<MarcacaoPonto> ultimaMarcacao = marcacaoPontoRepository.findByUltimaMarcacao(marcacaoPonto.getFuncionario().getId());
+
+        if (ultimaMarcacao.isPresent()) {
+            Duration d1 = Duration.between(ultimaMarcacao.get().getMarcacaoPonto(), LocalDateTime.now());
+            if (d1.toMinutes() >= 6) {
+                return marcacaoPontoRepository.save(marcacaoPonto);
+            }
+            throw new MarcacaoMenorQue6Min();
+        }
         return marcacaoPontoRepository.save(marcacaoPonto);
     }
+
 
     @Override
     public List<MarcacaoPonto> list(MarcacaoPonto marcacaoPonto) {
@@ -38,12 +50,7 @@ public class MarcacaoPontoServiceImpl implements MarcacaoPontoService {
 
     @Override
     public List<MarcacaoPonto> listFuncionario(MarcacaoPonto marcacaoPonto, Long id){
-        return IterableUtils.toList(marcacaoPontoRepository.findId_byIdFuncionario(id));
+        return IterableUtils.toList(marcacaoPontoRepository.findIdByIdFuncionario(id));
     }
-
-
-
-
-
 
 }

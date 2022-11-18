@@ -18,7 +18,7 @@ public class Justificativa {
     private Long Id;
     private String tipoJustificativa;
     private LocalDateTime dataJustificativa;
-
     //mudar para Arquivo e fazer relação one to one
-    private String anexarDocumento;
+    @ManyToOne
+    private Arquivo anexarDocumento;
 }
