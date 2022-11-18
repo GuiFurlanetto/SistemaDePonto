@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "4dd2cab2-9e5f-47d5-9351-8dff641a22bc",
-		"name": "Sistema de Ponto",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "f2a70a72-9616-4cbc-95bf-79b08349cb75",
+		"name": "Sistema de Ponto Copy 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23866754"
 	},
 	"item": [
 		{
@@ -12,30 +13,32 @@
 					"name": "Lista funcionarios",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/funcionarios",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios"
+							]
+						}
 					},
 					"response": [
 						{
 							"name": "Lista todos funcionarios",
 							"originalRequest": {
 								"method": "GET",
-								"header": []
+								"header": [],
+								"url": {
+									"raw": ""
+								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
-						},
-						{
-							"name": "Lista funcionarios por.....",
-							"originalRequest": {
-								"method": "GET",
-								"header": []
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
+							"body": "[{\r\n    \"codigoFuncional\": \"numero do Codigo Funcional\",\r\n    \"nome\": \"nome do funcionario\",\r\n    \"cargo\": \"cargo do funcionario\",\r\n    \"situacaoFuncionario\": \"situacao do funcioanrio\"\r\n}]"
 						}
 					]
 				},
@@ -46,7 +49,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": " {\r\n     \r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Vinicius\",\r\n        \"cargo\": {\r\n            \"id\": 15,\r\n            \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                \"id\": null,\r\n                \"nomeDepartamento\": \"AOC\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"ATIVO\"\r\n    }",
+							"raw": " {\r\n     \r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Vinicius\",\r\n        \"cargo\": {\r\n            \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                \"id\": 3,\r\n                \"nomeDepartamento\": \"AOC\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"ATIVO\"\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -64,7 +67,149 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Criar funcionario",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Vinicius\",\r\n        \"cargo\": {\r\n            \"id\": 15,\r\n            \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                \"id\": null,\r\n                \"nomeDepartamento\": \"AOC\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"ATIVO\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/funcionarios",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"funcionarios"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n{\r\n        \"codigoFuncional\": \"codigoFuncional\",\r\n        \"nome\": \"Nome do funcionario\",\r\n        \"cargo\": {\r\n            \"id\": \"id do cargo\",\r\n            \"descricaoCargo\": \"Nome do cargo\",\r\n            \"cargaHoraria\": \"cargaHoraria\",\r\n            \"departamento\": {\r\n                \"id\": \"id do departamento\",\r\n                \"nomeDepartamento\": \"nome do departamento\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"situacaoFuncionario\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "AtualizarFuncionario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"id\": 5,\r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Mario\",\r\n        \"cargo\": {\r\n            \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                \"id\": 3,\r\n                \"nomeDepartamento\": \"AOC\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"ATIVO\"\r\n    }\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/funcionarios/5",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"5"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "AtualizarFuncionario",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n    {\r\n       \r\n        \"codigoFuncional\": 4234577,\r\n        \"nome\": \"Vinicius\",\r\n        \"cargo\": {\r\n            \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                \"id\": 3,\r\n                \"nomeDepartamento\": \"AOC\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"ATIVO\"\r\n    }\r\n]",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/funcionarios/id do funcionario",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"funcionarios",
+										"id do funcionario"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n{\r\n        \"id\": id,\r\n        \"codigoFuncional\": \"codigoFuncional\",\r\n        \"nome\": \"Nome do funcionario\",\r\n        \"cargo\": {\r\n            \"id\": \"id do cargo\",\r\n            \"descricaoCargo\": \"Nome do cargo\",\r\n            \"cargaHoraria\": \"cargaHoraria\",\r\n            \"departamento\": {\r\n                \"id\": \"id do departamento\",\r\n                \"nomeDepartamento\": \"nome do departamento\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"situacaoFuncionario\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Deletar Funcionario",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/funcionarios/6",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"funcionarios",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deletar Funcionario",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localHost:8080/funcionarios/id funcionario",
+									"host": [
+										"localHost"
+									],
+									"port": "8080",
+									"path": [
+										"funcionarios",
+										"id funcionario"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "\"sem retorno\""
+						}
+					]
 				}
 			]
 		},
@@ -75,9 +220,41 @@
 					"name": "Lista departamentos",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/departamentos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"departamentos"
+							]
+						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Lista departamentos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/departamentos",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"departamentos"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n{\r\n        \"id\": \"id do departamento\",\r\n        \"nomeDepartamento\": \"nomeDepartamento\"\r\n    },\r\n]"
+						}
+					]
 				},
 				{
 					"name": "Criar departamento",
@@ -104,7 +281,131 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Criar departamento",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"nomeDepartamento\": \"AOC\"\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/departamentos",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"departamentos"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n{\r\n        \"id\": \"id do departamento\",\r\n        \"nomeDepartamento\": \"nomeDepartamento\"\r\n    },\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Departamento",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nomeDepartamento\": \"DS\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/departamentos/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"departamentos",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualizar Departamento",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "locahost:8080/departamento/id do departamento",
+									"host": [
+										"locahost"
+									],
+									"port": "8080",
+									"path": [
+										"departamento",
+										"id do departamento"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n{\r\n        \"id\": \"id do departamento\",\r\n        \"nomeDepartamento\": \"nomeDepartamento\"\r\n    },\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Deletar Departamento",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/departamentos/7",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"departamentos",
+								"7"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deletar Departamento",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "locaHost:8080/Departamento/id do departamento",
+									"host": [
+										"locaHost"
+									],
+									"port": "8080",
+									"path": [
+										"Departamento",
+										"id do departamento"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "\"Sem Retorno\""
+						}
+					]
 				}
 			]
 		},
@@ -115,9 +416,41 @@
 					"name": "Lista cargos",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cargos",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cargos"
+							]
+						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Lista cargos",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/cargos",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cargos"
+									]
+								}
+							},
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": \"id do cargo\",\r\n        \"descricaoCargo\": \"nome do cargo\",\r\n        \"cargaHoraria\": \"cargaHoraria\",\r\n        \"departamento\": {\r\n            \"id\": id do departamento,\r\n            \"nomeDepartamento\": \"nome do departamento\"\r\n        }\r\n    }\r\n]"
+						}
+					]
 				},
 				{
 					"name": "Criar cargo",
@@ -126,7 +459,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"id\": 15,\r\n        \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n        \"cargaHoraria\": \"08:00:00\",\r\n        \"departamento\": {\r\n            \"id\": 6,\r\n            \"nomeDepartamento\": \"AOC\"\r\n        }\r\n    }",
+							"raw": "{\r\n        \r\n        \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n        \"cargaHoraria\": \"08:00:00\",\r\n        \"departamento\": {\r\n            \"id\": 3,\r\n            \"nomeDepartamento\": \"DS\"\r\n        }\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -144,7 +477,140 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Criar cargo",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \r\n        \"descricaoCargo\": \"Analista Sistemas Jr\",\r\n        \"cargaHoraria\": \"08:00:00\",\r\n        \"departamento\": {\r\n            \"id\": 3,\r\n            \"nomeDepartamento\": \"DS\"\r\n        }\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/cargos",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cargos"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"descricaoCargo\": \"nome do cargo\",\r\n        \"cargaHoraria\": \"cargaHoraria\",\r\n        \"departamento\": {\r\n            \"id\": id do departamento,\r\n            \"nomeDepartamento\": \"nome do departamento\"\r\n        }\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Cargo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n      \r\n        \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n        \"cargaHoraria\": \"08:00:00\",\r\n        \"departamento\": {\r\n            \"id\": 3,\r\n            \"nomeDepartamento\": \"DS\"\r\n        }\r\n    },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cargos/4",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cargos",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualizar Cargo",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n      \r\n        \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n        \"cargaHoraria\": \"08:00:00\",\r\n        \"departamento\": {\r\n            \"id\": 3,\r\n            \"nomeDepartamento\": \"DS\"\r\n        }\r\n    },",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/cargos/id do cargo",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cargos",
+										"id do cargo"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": \"id do cargo\",\r\n        \"descricaoCargo\": \"nome do cargo\",\r\n        \"cargaHoraria\": \"cargaHoraria\",\r\n        \"departamento\": {\r\n            \"id\": id do departamento,\r\n            \"nomeDepartamento\": \"nome do departamento\"\r\n        }\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Deletar Cargo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cargos/9",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cargos",
+								"9"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deletar Cargo",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/cargos/id do cargo",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"cargos",
+										"id do cargo"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "\"Sem Retorno\""
+						}
+					]
 				}
 			]
 		},
@@ -155,9 +621,41 @@
 					"name": "Lista justificativas",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/justificativas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"justificativas"
+							]
+						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Lista justificativas",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/justificativas",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"justificativas"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"tipoJustificativa\": \"nome da justificativa\",\r\n        \"dataJustificativa\": \"data da justificativa\",\r\n        \"anexarDocumento\": \"anexarDocumento\",\r\n        \"id\": \"id da justificativa\"\r\n    }\r\n]"
+						}
+					]
 				},
 				{
 					"name": "Criar Justificativas",
@@ -166,7 +664,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"tipoJustificativa\": \"Licença Maternidade\",\r\n    \"dataJustificativa\": \"2022-11-06T10:00:00\"\r\n}",
+							"raw": "{\r\n    \"tipoJustificativa\": \"Férias\",\r\n    \"dataJustificativa\": \"2022-11-06T10:00:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -184,7 +682,140 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Criar Justificativas",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipoJustificativa\": \"Férias\",\r\n    \"dataJustificativa\": \"2022-11-06T10:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/justificativas",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"justificativas"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"tipoJustificativa\": \"nome da justificativa\",\r\n        \"dataJustificativa\": \"data da justificativa\",\r\n        \"anexarDocumento\": \"anexarDocumento\",\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Atualizar Justificativa",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoJustificativa\": \"Treinamento\",\r\n    \"dataJustificativa\": \"2022-11-06T10:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/justificativas/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"justificativas",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualizar Justificativa",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tipoJustificativa\": \"Treinamento\",\r\n    \"dataJustificativa\": \"2022-11-06T10:00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/justificativas/id da justificativa",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"justificativas",
+										"id da justificativa"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"tipoJustificativa\": \"nome da justificativa\",\r\n        \"dataJustificativa\": \"data da justificativa\",\r\n        \"anexarDocumento\": \"anexarDocumento\",\r\n        \"id\": \"id da justificativa\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "Deletar Justificativa",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/justificativas/11",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"justificativas",
+								"11"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Deletar Justificativa",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/justificativas/id da justificativa",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"justificativas",
+										"id da justificativa"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "\"Sem Retorno\""
+						}
+					]
 				}
 			]
 		},
@@ -195,18 +826,50 @@
 					"name": "Lista historico ponto",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/historicoponto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"historicoponto"
+							]
+						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Lista historico ponto",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "locahost:8080/historicoponto",
+									"host": [
+										"locahost"
+									],
+									"port": "8080",
+									"path": [
+										"historicoponto"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": id do historico de ponto\",\r\n        \"dataMarcacao\": \"dataMarcacao\",\r\n        \"tipoMarcacao\": \"tipoMarcacao\",\r\n        \"funcionario\": {\r\n            \"id\": id do funcionario,\r\n            \"codigoFuncional\": codigoFuncional,\r\n            \"nome\": \"nome do funcionario\",\r\n            \"cargo\": {\r\n                \"id\": id do cargo,\r\n                \"descricaoCargo\": \"nome do cargo\",\r\n                \"cargaHoraria\": \"cargaHoraria\",\r\n                \"departamento\": {\r\n                    \"id\": id do departamento,\r\n                    \"nomeDepartamento\": \"nome do departamento\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"situacaoFuncionario\"\r\n        },\r\n        \"justificativa\": \"justificativa do historico de ponto\"\r\n    }\r\n]"
+						}
+					]
 				},
 				{
-					"name": "Criar historico ponto",
+					"name": "Criar historico de ponto",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": " {\r\n     \"dataMarcacao\": \"2022-11-06T19:15:00\",\r\n        \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 6,\r\n            \"codigoFuncional\": 94745468,\r\n            \"nome\": \"Maria\",\r\n            \"cargo\": {\r\n                \"id\": 4,\r\n                \"descricaoCargo\": \"Operador\",\r\n                \"cargaHoraria\": \"08:00:00\",\r\n                \"departamento\": {\r\n                    \"id\": 2,\r\n                    \"nomeDepartamento\": \"AOC\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+							"raw": "{\r\n             \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 5,\r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Mario\",\r\n        \"cargo\": {\r\n                \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                   \"id\": 3,\r\n                \"nomeDepartamento\": \"DS\"\r\n            }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -226,13 +889,13 @@
 					},
 					"response": [
 						{
-							"name": "Criar historico ponto",
+							"name": "Criar historico de ponto",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": " {\r\n     \"dataMarcacao\": \"2022-11-06T19:15:00\",\r\n        \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 6,\r\n            \"codigoFuncional\": 94745468,\r\n            \"nome\": \"Maria\",\r\n            \"cargo\": {\r\n                \"id\": 4,\r\n                \"descricaoCargo\": \"Operador\",\r\n                \"cargaHoraria\": \"08:00:00\",\r\n                \"departamento\": {\r\n                    \"id\": 2,\r\n                    \"nomeDepartamento\": \"AOC\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+									"raw": "{\r\n             \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 5,\r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Mario\",\r\n        \"cargo\": {\r\n                \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                   \"id\": 3,\r\n                \"nomeDepartamento\": \"DS\"\r\n            }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -250,21 +913,21 @@
 									]
 								}
 							},
-							"_postman_previewlanguage": null,
-							"header": null,
+							"_postman_previewlanguage": "Text",
+							"header": [],
 							"cookie": [],
-							"body": null
+							"body": "[\r\n    {\r\n        \"dataMarcacao\": \"dataMarcacao\",\r\n        \"tipoMarcacao\": \"tipoMarcacao\",\r\n        \"funcionario\": {\r\n            \"id\": id do funcionario,\r\n            \"codigoFuncional\": codigoFuncional,\r\n            \"nome\": \"nome do funcionario\",\r\n            \"cargo\": {\r\n                \"id\": id do cargo,\r\n                \"descricaoCargo\": \"nome do cargo\",\r\n                \"cargaHoraria\": \"cargaHoraria\",\r\n                \"departamento\": {\r\n                    \"id\": id do departamento,\r\n                    \"nomeDepartamento\": \"nome do departamento\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"situacaoFuncionario\"\r\n        },\r\n        \"justificativa\": \"justificativa do historico de ponto\"\r\n    }\r\n]"
 						}
 					]
 				},
 				{
-					"name": "teste LocalDateTime.now",
+					"name": "Atualizar historico de ponto",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n             \"tipoMarcacao\": \"ENTRADA\",\r\n        \"funcionario\": {\r\n            \"id\": 4,\r\n            \"codigoFuncional\": 95745468,\r\n            \"nome\": \"Maria\",\r\n            \"cargo\": {\r\n                \"id\": 3,\r\n                \"descricaoCargo\": \"Operador\",\r\n                \"cargaHoraria\": \"08:00:00\",\r\n                \"departamento\": {\r\n                    \"id\": 1,\r\n                    \"nomeDepartamento\": \"RH\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+							"raw": "{\r\n             \"tipoMarcacao\": \"SAIDA\",\r\n        \"funcionario\": {\r\n            \"id\": 5,\r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Mario\",\r\n        \"cargo\": {\r\n                \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                   \"id\": 3,\r\n                \"nomeDepartamento\": \"DS\"\r\n            }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -272,17 +935,186 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/historicoponto",
+							"raw": "localhost:8080/historicoponto/12",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"historicoponto"
+								"historicoponto",
+								"12"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Atualizar historico de ponto",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n             \"tipoMarcacao\": \"SAIDA\",\r\n        \"funcionario\": {\r\n            \"id\": 5,\r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Mario\",\r\n        \"cargo\": {\r\n                \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                   \"id\": 3,\r\n                \"nomeDepartamento\": \"DS\"\r\n            }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/historicoponto/id do historico de ponto",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"historicoponto",
+										"id do historico de ponto"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "[\r\n    {\r\n        \"id\": id do historico de ponto\",\r\n        \"dataMarcacao\": \"dataMarcacao\",\r\n        \"tipoMarcacao\": \"tipoMarcacao\",\r\n        \"funcionario\": {\r\n            \"id\": id do funcionario,\r\n            \"codigoFuncional\": codigoFuncional,\r\n            \"nome\": \"nome do funcionario\",\r\n            \"cargo\": {\r\n                \"id\": id do cargo,\r\n                \"descricaoCargo\": \"nome do cargo\",\r\n                \"cargaHoraria\": \"cargaHoraria\",\r\n                \"departamento\": {\r\n                    \"id\": id do departamento,\r\n                    \"nomeDepartamento\": \"nome do departamento\"\r\n                }\r\n            },\r\n            \"situacaoFuncionario\": \"situacaoFuncionario\"\r\n        },\r\n        \"justificativa\": \"justificativa do historico de ponto\"\r\n    }\r\n]"
+						}
+					]
+				},
+				{
+					"name": "deletar historico de ponto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/historicoponto/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"historicoponto",
+								"12"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deletar historico de ponto",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localHost:8080/historicoponto/id do historico",
+									"host": [
+										"localHost"
+									],
+									"port": "8080",
+									"path": [
+										"historicoponto",
+										"id do historico"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "\"Sem Retorno\""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "MarcacaoPonto",
+			"item": [
+				{
+					"name": "Criar MarcacaoPonto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n             \"tipoMarcacao\": \"SAIDA\",\r\n        \"funcionario\": {\r\n            \"id\": 18,\r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Mario\",\r\n        \"cargo\": {\r\n                \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                   \"id\": 3,\r\n                \"nomeDepartamento\": \"DS\"\r\n            }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/marcacaoponto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"marcacaoponto"
 							]
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Lista Marcacoes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/marcacaoponto",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"marcacaoponto"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Lista Todas as Marcacoes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/marcacaoponto",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"marcacaoponto"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n        \"id\": \"id da Marcação\",\r\n        \"funcionario\": {\r\n            \"id\": \"id do Funcionario\",\r\n            \"codigoFuncional\": \"codigoFuncional\",\r\n        \"nome\": \"Nome do funcionario\",\r\n        \"cargo\": {\r\n            \"id\": \"id do cargo\",\r\n            \"descricaoCargo\": \"Nome do cargo\",\r\n            \"cargaHoraria\": \"cargaHoraria\",\r\n            \"departamento\": {\r\n                \"id\": \"id do departamento\",\r\n                \"nomeDepartamento\": \"nome do departamento\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"situacaoFuncionario\"\r\n    },\r\n        \"tipoMarcacao\": \"tipo de Marcação\",\r\n        \"marcacaoPonto\": \"data e hora da Marcacao\"\r\n    }"
+						},
+						{
+							"name": "Lista Marcacoes Por Funcionario",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/marcacaoponto/id do funcionario",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"marcacaoponto",
+										"id do funcionario"
+									]
+								}
+							},
+							"_postman_previewlanguage": "Text",
+							"header": [],
+							"cookie": [],
+							"body": "{\r\n        \"id\": \"id da Marcação\",\r\n        \"funcionario\": {\r\n            \"id\": \"id do Funcionario\",\r\n            \"codigoFuncional\": \"codigoFuncional\",\r\n        \"nome\": \"Nome do funcionario\",\r\n        \"cargo\": {\r\n            \"id\": \"id do cargo\",\r\n            \"descricaoCargo\": \"Nome do cargo\",\r\n            \"cargaHoraria\": \"cargaHoraria\",\r\n            \"departamento\": {\r\n                \"id\": \"id do departamento\",\r\n                \"nomeDepartamento\": \"nome do departamento\"\r\n            }\r\n        },\r\n        \"situacaoFuncionario\": \"situacaoFuncionario\"\r\n    },\r\n        \"tipoMarcacao\": \"tipo de Marcação\",\r\n        \"marcacaoPonto\": \"data e hora da Marcacao\"\r\n    }"
+						}
+					]
 				}
 			]
 		},
@@ -322,7 +1154,10 @@
 					"name": "Listar arquivo por id",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": ""
+						}
 					},
 					"response": []
 				},
