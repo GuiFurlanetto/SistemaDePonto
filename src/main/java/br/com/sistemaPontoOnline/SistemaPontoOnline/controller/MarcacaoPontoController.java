@@ -15,11 +15,10 @@ import java.util.Optional;
 public class MarcacaoPontoController {
 
     private final MarcacaoPontoService marcacaoPontoService;
-    private final MarcacaoPontoRepository marcacaoPontoRepository;
 
-    public MarcacaoPontoController(MarcacaoPontoService marcacaoPontoService, MarcacaoPontoRepository marcacaoPontoRepository) {
+
+    public MarcacaoPontoController(MarcacaoPontoService marcacaoPontoService) {
         this.marcacaoPontoService = marcacaoPontoService;
-        this.marcacaoPontoRepository = marcacaoPontoRepository;
     }
 
 
@@ -29,12 +28,12 @@ public class MarcacaoPontoController {
     }
 
     @GetMapping
-    List<MarcacaoPonto> list(MarcacaoPonto marcacaoPonto) {
-        return marcacaoPontoService.list(marcacaoPonto);
+    List<MarcacaoPonto> list() {
+        return marcacaoPontoService.list();
     }
 
-    @GetMapping("{id}")
-    List<MarcacaoPonto> listFuncionario (MarcacaoPonto marcacaoPonto, @PathVariable Long id) {
-        return marcacaoPontoService.listFuncionario(marcacaoPonto,id);
+    @GetMapping("{id}") // olhar se esta usando marcacção
+    List<MarcacaoPonto> listFuncionario ( @PathVariable Long id) {
+        return marcacaoPontoService.listFuncionario(id);
     }
 }

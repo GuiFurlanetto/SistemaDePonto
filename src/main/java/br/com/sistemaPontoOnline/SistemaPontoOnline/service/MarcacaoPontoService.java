@@ -12,9 +12,9 @@ public interface MarcacaoPontoService {
 
     MarcacaoPonto save(MarcacaoPonto marcacaoPonto, Funcionario funcionario);
 
-    List<MarcacaoPonto> list (MarcacaoPonto marcacaoPonto);
+    List<MarcacaoPonto> list ();
 
-    List<MarcacaoPonto> listFuncionario (MarcacaoPonto marcacaoPonto, Long id);
+    List<MarcacaoPonto> listFuncionario (Long id);
 
 
 }

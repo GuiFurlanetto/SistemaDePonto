@@ -44,12 +44,12 @@ public class MarcacaoPontoServiceImpl implements MarcacaoPontoService {
 
 
     @Override
-    public List<MarcacaoPonto> list(MarcacaoPonto marcacaoPonto) {
+    public List<MarcacaoPonto> list() {
         return IterableUtils.toList(marcacaoPontoRepository.findAll());
     }
 
     @Override
-    public List<MarcacaoPonto> listFuncionario(MarcacaoPonto marcacaoPonto, Long id){
+    public List<MarcacaoPonto> listFuncionario(Long id){
         return IterableUtils.toList(marcacaoPontoRepository.findIdByIdFuncionario(id));
     }
 
