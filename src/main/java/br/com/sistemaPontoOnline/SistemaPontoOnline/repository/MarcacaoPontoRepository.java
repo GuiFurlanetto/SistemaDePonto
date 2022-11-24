@@ -1,7 +1,6 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.repository;
 
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Funcionario;
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.HistoricoPonto;
+
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.MarcacaoPonto;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;

@@ -1,6 +1,6 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.controller;
 
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.HistoricoPonto;
+
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Justificativa;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.service.JustificativaService;
 import org.springframework.web.bind.annotation.*;

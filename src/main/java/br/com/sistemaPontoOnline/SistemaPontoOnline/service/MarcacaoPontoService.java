@@ -1,7 +1,7 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Funcionario;
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.HistoricoPonto;
+
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.MarcacaoPonto;
 
 import java.time.LocalDateTime;

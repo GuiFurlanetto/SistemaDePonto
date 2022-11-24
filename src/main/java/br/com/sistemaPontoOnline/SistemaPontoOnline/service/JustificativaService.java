@@ -1,6 +1,6 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.HistoricoPonto;
+
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Justificativa;
 
 import java.time.LocalDateTime;

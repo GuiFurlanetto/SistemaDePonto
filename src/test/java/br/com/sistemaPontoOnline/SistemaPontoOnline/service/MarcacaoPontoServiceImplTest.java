@@ -65,6 +65,16 @@ public class MarcacaoPontoServiceImplTest {
 
     }
 
+    @Test
+    public void testeSalvarMarcacao(){
+
+        MarcacaoPonto marcacaoPonto = new MarcacaoPonto();
+        marcacaoPonto.setMarcacaoPonto(LocalDateTime.now());
+        marcacaoPontoRepository.save(marcacaoPonto);
+        Assertions.assertNotNull(marcacaoPonto);
+
+    }
+
 //    @Test
 //    public void  testeListarPorId() {
 //        /// mudar  para listar por ID
