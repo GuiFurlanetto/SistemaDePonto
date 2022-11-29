@@ -24,4 +24,8 @@ public class Arquivo {
 
     @Lob
     private byte[] dado;
+
+    @OneToOne
+    @JoinColumn(name = "justificativa_id")
+    private Justificativa justificativa;
 }

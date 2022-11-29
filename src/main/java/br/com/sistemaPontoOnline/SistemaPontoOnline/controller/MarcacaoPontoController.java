@@ -23,8 +23,8 @@ public class MarcacaoPontoController {
 
 
     @PostMapping
-    MarcacaoPonto save (@RequestBody MarcacaoPonto marcacaoPonto, Funcionario funcionario){
-        return marcacaoPontoService.save(marcacaoPonto, funcionario);
+    MarcacaoPonto save (@RequestBody MarcacaoPonto marcacaoPonto){
+        return marcacaoPontoService.save(marcacaoPonto);
     }
 
     @GetMapping

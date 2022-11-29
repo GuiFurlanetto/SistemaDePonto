@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface MarcacaoPontoService {
 
-    MarcacaoPonto save(MarcacaoPonto marcacaoPonto, Funcionario funcionario);
+    MarcacaoPonto save(MarcacaoPonto marcacaoPonto);
 
     List<MarcacaoPonto> list ();
 

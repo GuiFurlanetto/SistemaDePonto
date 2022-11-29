@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RestController
-@RequestMapping("arquivos")
+@RequestMapping("justificativas/{justificativaId}/arquivos")
 //@RequestMapping("justificativas/{justifictivaId}/arquivos") <<< Será que assim faz mais sentido? *Gui*
 @RequiredArgsConstructor
 public class ArquivoController {
@@ -24,8 +24,8 @@ public class ArquivoController {
 
     @PostMapping("/upload")
     @ResponseBody
-    public ArquivoDTO uploadFile(@RequestParam("arquivo") MultipartFile arquivo) throws IOException {
-        Arquivo novoArquivo = arquivoService.save(arquivo);
+    public ArquivoDTO uploadFile(@RequestParam("arquivo") MultipartFile arquivo, @PathVariable Long justificativaId) throws IOException {
+        Arquivo novoArquivo = arquivoService.save(arquivo,justificativaId);
         return ArquivoDTO.builder()
                 .nome(novoArquivo.getNome())
                 .tipo(novoArquivo.getTipo())

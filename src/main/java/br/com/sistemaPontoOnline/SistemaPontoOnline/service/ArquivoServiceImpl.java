@@ -2,8 +2,10 @@ package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 
 
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Arquivo;
+import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Justificativa;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.ArquivoNotFound;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.ArquivoRepository;
+import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.JustificativaRepository;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.collections4.IterableUtils;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,7 @@ import java.util.List;
 public class ArquivoServiceImpl implements ArquivoService{
 
     private final ArquivoRepository arquivoRepository;
+    private final JustificativaRepository justificativaRepository;
 
     @Override
     public Arquivo getById(Long id) {
@@ -24,12 +27,20 @@ public class ArquivoServiceImpl implements ArquivoService{
     }
 
     @Override
-    public Arquivo save(MultipartFile arquivo) throws IOException {
+    public Arquivo save(MultipartFile arquivo, Long justificativaId) throws IOException {
         Arquivo arquivoDB = Arquivo.builder()
                 .dado(arquivo.getBytes())
                 .nome(arquivo.getOriginalFilename())
                 .tipo(arquivo.getContentType())
+
                 .build();
+        if (justificativaRepository.existsById(justificativaId)){
+            Justificativa justificativa = new Justificativa();
+            justificativa.setId(justificativaId);
+            arquivoDB.setJustificativa(justificativa);
+
+            return arquivoRepository.save(arquivoDB);
+        }
         return arquivoRepository.save(arquivoDB);
     }
 

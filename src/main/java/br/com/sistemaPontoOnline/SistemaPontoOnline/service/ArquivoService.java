@@ -9,7 +9,7 @@ import java.util.List;
 public interface ArquivoService {
     Arquivo getById (Long id);
 
-    Arquivo save (MultipartFile arquivo) throws IOException;
+    Arquivo save (MultipartFile arquivo, Long justificativaId) throws IOException;
 
     List<Arquivo> listAll();
 }

@@ -30,7 +30,7 @@ public class MarcacaoPontoServiceImpl implements MarcacaoPontoService {
     }*/
 
     @Override
-    public MarcacaoPonto save(MarcacaoPonto marcacaoPonto, Funcionario funcionario) {
+    public MarcacaoPonto save(MarcacaoPonto marcacaoPonto) {
 
         marcacaoPonto.setMarcacaoPonto(LocalDateTime.now());
         marcacaoPonto.setTipoMarcacao(TipoMarcacao.ENTRADA);
