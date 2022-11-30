@@ -1,5 +1,6 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,7 +19,8 @@ public class Justificativa {
     private Long Id;
     private String tipoJustificativa;
     private LocalDateTime dataJustificativa;
-    //mudar para Arquivo e fazer relação one to one
-    @OneToOne
+
+    @OneToOne(cascade = CascadeType.MERGE)
+    @JsonIgnoreProperties({"dado","justificativa"})
     private Arquivo arquivo;
 }

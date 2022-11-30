@@ -1,6 +1,5 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Cargo;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Departamento;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.DepartamentoRepository;
 import lombok.RequiredArgsConstructor;
@@ -24,15 +23,6 @@ public class DepartamentoServiceImpl implements DepartamentoService {
         return IterableUtils.toList(departamentoRepository.findAllBynomeDepartamentoContains(nomeDepartamento));
     }
 
-//    public DepartamentoServiceImpl(DepartamentoRepository departamentoRepository) {
-//        this.departamentoRepository = departamentoRepository;
-//    }
-
-
- //   @Override
- //   public List<Departamento> list(String nomeDepartamento) {
- //       return IterableUtils.toList(departamentoRepository.findAll());
- //   }
 
     @Override
     public Departamento save(Departamento departamento) {

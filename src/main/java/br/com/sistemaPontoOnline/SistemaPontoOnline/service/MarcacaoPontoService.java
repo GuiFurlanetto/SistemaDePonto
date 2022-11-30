@@ -16,5 +16,7 @@ public interface MarcacaoPontoService {
 
     List<MarcacaoPonto> listFuncionario (Long id);
 
+//    List<MarcacaoPonto> listByData(Long id);
+
 
 }

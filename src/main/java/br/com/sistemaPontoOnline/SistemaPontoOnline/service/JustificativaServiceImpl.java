@@ -1,6 +1,5 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Funcionario;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Justificativa;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.JustificativaRepository;
 import lombok.RequiredArgsConstructor;

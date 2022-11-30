@@ -7,12 +7,6 @@ import java.util.List;
 public interface FuncionarioService {
 
     List<Funcionario> list (Long codigoFuncional);
-
-    /** será que podemos ter os metodos "listByCodigoFuncional" e "listByNome" ou precisar ser apenas "list" pq ja é da biblioteca? (Gui) */
-//    List<Funcionario> listByCodigoFuncional (Long codigoFuncional);
-//    List<Funcionario> listByNome (String nome);
-
-
     Funcionario save (Funcionario funcionario);
     Funcionario getById (Long id);
     Funcionario update (Long id, Funcionario funcionario);

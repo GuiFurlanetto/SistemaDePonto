@@ -4,8 +4,6 @@ package br.com.sistemaPontoOnline.SistemaPontoOnline.controller;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Justificativa;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.service.JustificativaService;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,7 +42,6 @@ public class JustificativaController {
     void delete(@PathVariable Long id){
         justificativaService.delete(id);
     }
-
 
 
 }

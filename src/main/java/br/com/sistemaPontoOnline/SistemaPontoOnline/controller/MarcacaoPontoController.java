@@ -1,14 +1,11 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.controller;
 
 
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Funcionario;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.MarcacaoPonto;
-import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.MarcacaoPontoRepository;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.service.MarcacaoPontoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("marcacaoponto")
@@ -32,8 +29,14 @@ public class MarcacaoPontoController {
         return marcacaoPontoService.list();
     }
 
-    @GetMapping("{id}") // olhar se esta usando marcacção
-    List<MarcacaoPonto> listFuncionario ( @PathVariable Long id) {
+    @GetMapping("{id}")
+    List<MarcacaoPonto> listFuncionario(@PathVariable Long id) {
         return marcacaoPontoService.listFuncionario(id);
     }
+
+
+//    @GetMapping
+//    List<MarcacaoPonto> listByData ( @PathVariable Long id) {
+//        return marcacaoPontoService.listByData(id);
+//    }
 }

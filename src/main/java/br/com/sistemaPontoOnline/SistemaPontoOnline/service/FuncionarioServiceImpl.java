@@ -23,17 +23,6 @@ public class FuncionarioServiceImpl implements FuncionarioService {
         return IterableUtils.toList(funcionarioRepository.findAllByCodigoFuncional(codigoFuncional));
     }
 
-
-
-//    @Override
-//    public List<Funcionario> listByCodigoFuncional (Long id) {
-//        return (List<Funcionario>) funcionarioRepository.findById(id).get();
-//    }
-//    @Override
-//    public List<Funcionario> listByNome (String nome) {
-//        return null;
-//    }
-
     @Override
     public Funcionario getById(Long id) {
         return funcionarioRepository.findById(id).orElseThrow(FuncionarioNotFound::new);

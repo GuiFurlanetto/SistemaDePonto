@@ -4,15 +4,14 @@ package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Arquivo;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Justificativa;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.ArquivoNotFound;
+import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.JustificativaNotFound;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.ArquivoRepository;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.repository.JustificativaRepository;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.collections4.IterableUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -34,18 +33,16 @@ public class ArquivoServiceImpl implements ArquivoService{
                 .tipo(arquivo.getContentType())
 
                 .build();
-        if (justificativaRepository.existsById(justificativaId)){
+        if (justificativaRepository.existsById(justificativaId)) {
             Justificativa justificativa = new Justificativa();
             justificativa.setId(justificativaId);
-            arquivoDB.setJustificativa(justificativa);
+            justificativa.setArquivo(arquivoDB);
 
-            return arquivoRepository.save(arquivoDB);
+            justificativaRepository.save(justificativa);
+            return arquivoDB;
         }
-        return arquivoRepository.save(arquivoDB);
+        throw new JustificativaNotFound();
+
     }
 
-    @Override
-    public List<Arquivo> listAll() {
-        return IterableUtils.toList(arquivoRepository.findAll());
-    }
 }

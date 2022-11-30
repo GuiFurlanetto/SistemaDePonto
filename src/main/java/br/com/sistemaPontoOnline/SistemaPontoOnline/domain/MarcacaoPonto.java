@@ -12,7 +12,6 @@ import java.time.LocalDateTime;
 @Getter
 
 public class MarcacaoPonto {
-   // duvida: deve ser uma classe ou interface?
    @Id
    @GeneratedValue(strategy = GenerationType.SEQUENCE)
    private Long id;

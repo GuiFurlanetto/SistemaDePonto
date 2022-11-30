@@ -10,6 +10,5 @@ import java.util.List;
 public interface FuncionarioRepository extends CrudRepository<Funcionario, Long> {
 
     List<Funcionario> findAllByCodigoFuncional(Long codigoFuncional);
-//    boolean existsByName(String name);
-//    List<Funcionario> findAllByNome(String nome);
+
 }

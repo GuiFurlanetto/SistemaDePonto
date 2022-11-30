@@ -1,6 +1,7 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.config;
 
 import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.FuncionarioNotFound;
+import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.JustificativaNotFound;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.MarcacaoMenorQue6Min;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -40,25 +41,16 @@ public class HandlerException {
         return APIError.builder().message("Arquivo acima do tamanho permitido!").build();
     }
 
-
-    /*@ExceptionHandler({MethodArgumentNotValidException.class})
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    public APIError handlerExceptionValidation(MethodArgumentNotValidException exception) {
-
-
-        List<FieldErrorDTO> errors = exception.getAllErrors().stream().map(error -> {
-            FieldError fieldError = (FieldError) error;
-            return FieldErrorDTO.builder().name(fieldError.getField())
-                    .error(fieldError.getDefaultMessage()).build();
-        }).collect(Collectors.toList());
-
+    @ExceptionHandler({JustificativaNotFound.class})
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public APIError handlerExceptionJustificativa(Exception exception) {
         APIError apiError = APIError.builder()
-                .message("Validation failed for argument")
-                .code("ERROR0001")
-                .error(errors)
+                .message(exception.getMessage())
+                .code("ERROR.JUS.001")
                 .build();
         return apiError;
-    }*/
+    }
+
 
 
 }

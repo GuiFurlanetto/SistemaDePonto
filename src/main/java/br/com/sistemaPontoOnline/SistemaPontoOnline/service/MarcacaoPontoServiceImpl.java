@@ -1,7 +1,5 @@
 package br.com.sistemaPontoOnline.SistemaPontoOnline.service;
 
-import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.Funcionario;
-
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.MarcacaoPonto;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.domain.TipoMarcacao;
 import br.com.sistemaPontoOnline.SistemaPontoOnline.exceptions.MarcacaoMenorQue6Min;
@@ -20,14 +18,6 @@ import java.util.Optional;
 public class MarcacaoPontoServiceImpl implements MarcacaoPontoService {
 
     private final MarcacaoPontoRepository marcacaoPontoRepository;
-
-    /*@Override <- FUNCIONANDO
-    public MarcacaoPonto save(MarcacaoPonto marcacaoPonto, Funcionario funcionario) {
-        LocalDateTime marcacao = marcacaoPonto.getMarcacaoPonto();
-
-        marcacaoPonto.setMarcacaoPonto(LocalDateTime.now());
-        return marcacaoPontoRepository.save(marcacaoPonto);
-    }*/
 
     @Override
     public MarcacaoPonto save(MarcacaoPonto marcacaoPonto) {
@@ -63,8 +53,13 @@ public class MarcacaoPontoServiceImpl implements MarcacaoPontoService {
     }
 
     @Override
-    public List<MarcacaoPonto> listFuncionario(Long id){
+    public List<MarcacaoPonto> listFuncionario(Long id) {
         return IterableUtils.toList(marcacaoPontoRepository.findIdByIdFuncionario(id));
     }
+
+//    @Override
+//    public List<MarcacaoPonto> listByData(Long id){
+//        return IterableUtils.toList(marcacaoPontoRepository.filterByData(id));
+//    }
 
 }

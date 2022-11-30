@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @Controller
 @RestController
 @RequestMapping("justificativas/{justificativaId}/arquivos")
-//@RequestMapping("justificativas/{justifictivaId}/arquivos") <<< Será que assim faz mais sentido? *Gui*
+
 @RequiredArgsConstructor
 public class ArquivoController {
 
@@ -41,19 +40,6 @@ public class ArquivoController {
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + arquivo.getNome() + "\"")
                 .body(arquivo.getDado());
     }
-
-//    @GetMapping
-//    @ResponseBody
-//    public List<ArquivoDTO> listAll() {
-//        return arquivoService.listAll().stream().map(arquivo -> ArquivoDTO.builder()
-//                .nome(arquivo.getNome())
-//                .tipo(arquivo.getTipo())
-//                .tamanho(arquivo.getDado().length)
-//                .url("/arquivos/" + arquivo.getId())
-//                .build()).toList();
-//    }
-
-
 
 
 

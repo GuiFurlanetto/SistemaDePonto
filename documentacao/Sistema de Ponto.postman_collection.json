@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d08028bd-3d7e-4f56-bfdf-462b0af1fa87",
+		"_postman_id": "928611d0-5248-4dc9-b895-cf9ac698fa35",
 		"name": "Sistema de Ponto",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -846,7 +846,38 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Criar MarcacaoPonto",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n             \"tipoMarcacao\": \"SAIDA\",\r\n        \"funcionario\": {\r\n            \"id\": 18,\r\n        \"codigoFuncional\": 4234566,\r\n        \"nome\": \"Mario\",\r\n        \"cargo\": {\r\n                \"id\": 4,\r\n            \"descricaoCargo\": \"Analista Sistemas Sr\",\r\n            \"cargaHoraria\": \"08:00:00\",\r\n            \"departamento\": {\r\n                   \"id\": 3,\r\n                \"nomeDepartamento\": \"DS\"\r\n            }\r\n            },\r\n            \"situacaoFuncionario\": \"ATIVO\"\r\n        },\r\n        \"justificativa\": null\r\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/marcacaoponto",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"marcacaoponto"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
 				},
 				{
 					"name": "Lista Marcacoes",
@@ -939,35 +970,6 @@
 							"path": [
 								"arquivos",
 								"upload"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar arquivo por id",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar todos arquivos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "localhost:8080/arquivos",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"arquivos"
 							]
 						}
 					},

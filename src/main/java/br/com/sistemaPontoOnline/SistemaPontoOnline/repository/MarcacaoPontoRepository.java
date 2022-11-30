@@ -12,13 +12,15 @@ import java.util.Optional;
 
 public interface MarcacaoPontoRepository extends CrudRepository<MarcacaoPonto, LocalDateTime> {
 
-    /*@Query("FROM MarcacaoPonto where id like '%:id%'")
-    List<MarcacaoPonto> findId(Long id);*/
 
     @Query(value = "select * from Marcacao_Ponto, Funcionario where Funcionario_id = Funcionario.id and Funcionario.id = ?1", nativeQuery = true)
     List<MarcacaoPonto> findIdByIdFuncionario(@Param("id") Long id);
 
     @Query(value = "select * from Marcacao_Ponto, Funcionario where Funcionario_id = Funcionario.id and Funcionario.id = ?1 order by marcacao_Ponto desc limit 1", nativeQuery = true)
-            Optional<MarcacaoPonto> findByUltimaMarcacao(@Param("id") Long id);
+    Optional<MarcacaoPonto> findByUltimaMarcacao(@Param("id") Long id);
+
+//    duvida: Qual parametro usar para Data?
+//    @Query(value = "select marcacao_ponto from Marcacao_Ponto, Funcionario where Funcionario_id = Funcionario.id and Funcionario.id = ?1 and marcacao_ponto between ?2 and ?3", nativeQuery = true)
+//    List<MarcacaoPonto> filterByData(@Param("id") Long id);
 
 }
